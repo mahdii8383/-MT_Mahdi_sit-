@@ -1,20 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <title>سایت تستی مهدی</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>آموزش سریع پایتون — نمونه‌ها</title>
   <style>
-    body {
-      background: #f0f0f0;
-      text-align: center;
-      padding-top: 100px;
-      font-family: sans-serif;
-    }
-    h1 { color: #333; }
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#ffd43b;--text:#e6eef8}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,#071126 0%, #08192a 100%);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    .wrap{max-width:980px;width:100%;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.6);overflow:hidden}
+    header{display:flex;gap:16px;align-items:center;padding:18px 20px;border-bottom:1px solid rgba(255,255,255,0.04)}
+    header img{width:72px;height:72px;object-fit:cover;border-radius:8px;border:2px solid rgba(255,255,255,0.04)}
+    header h1{font-size:20px;margin:0}
+    header p{margin:0;color:rgba(230,238,248,0.7);font-size:13px}
+    .content{display:grid;grid-template-columns:1fr 420px;gap:20px;padding:20px}
+    .box{background:var(--card);padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);box-shadow:inset 0 1px 0 rgba(255,255,255,0.01)}
+    pre{white-space:pre-wrap;word-break:break-word;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;margin:0;color:#dbeafe}
+    .examples h2{margin:0 0 10px 0;font-size:16px}
+    .meta{display:flex;gap:8px;align-items:center;margin-top:10px}
+    .btn{background:var(--accent);color:#061029;padding:8px 10px;border-radius:8px;border:none;cursor:pointer;font-weight:600}
+    footer{padding:12px 20px;border-top:1px solid rgba(255,255,255,0.03);font-size:13px;color:rgba(230,238,248,0.7)}
+    @media (max-width:900px){.content{grid-template-columns:1fr;}.examples{order:2}}
   </style>
 </head>
 <body>
-  <h1>اطلاع رسانی کالاف دیوتی موبایل</h1>
-  <p>اطلاع رسانی به زودی انجام میشه</p>
+  <div class="wrap" role="main">
+    <header>
+      <!-- تصویر تصادفی درباره پایتون (از Unsplash) -->
+      <img src="https://source.unsplash.com/800x600/?python,programming" alt="Python image (random)" />
+      <div>
+        <h1>آموزش سریع پایتون — نمونه‌ها</h1>
+        <p>چند مثال کوتاه برای شروع: متغیر، لیست، حلقه، تابع و اجرای ساده</p>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="examples box">
+        <h2>مثال‌ها (قابل کپی)</h2>
+
+        <strong>۱) متغیر و چاپ</strong>
+        <pre id="code1">name = "Mahdi"
+age = 21
+print(f"سلام {name} — شما {age} ساله‌اید")</pre>
+        <div class="meta"><button class="btn" onclick="copyText('code1')">کپی</button></div>
+
+        <hr style="margin:14px 0;border:none;border-top:1px dashed rgba(255,255,255,0.04)">
+
+        <strong>۲) لیست و حلقه</strong>
+        <pre id="code2">fruits = ["سیب", "موز", "پرتقال"]
+for i, f in enumerate(fruits, 1):
+    print(i, "-", f)</pre>
+        <div class="meta"><button class="btn" onclick="copyText('code2')">کپی</button></div>
+
+        <hr style="margin:14px 0;border:none;border-top:1px dashed rgba(255,255,255,0.04)">
+
+        <strong>۳) تابع ساده</strong>
+        <pre id="code3">def greet(name):
+    return "سلام " + name
+
+print(greet("دنیا"))</pre>
+        <div class="meta"><button class="btn" onclick="copyText('code3')">کپی</button></div>
+
+        <hr style="margin:14px 0;border:none;border-top:1px dashed rgba(255,255,255,0.04)">
+
+        <strong>۴) اجرا در مرورگر (ترجمه‌شده برای نمایش)</strong>
+        <pre id="code4"># برای اجرای واقعی، از مفسر پایتون استفاده کنید.
+# مثال: ذخیره در file.py و اجرای `python file.py`</pre>
+        <div class="meta"><button class="btn" onclick="copyText('code4')">کپی همه</button></div>
+      </div>
+
+      <aside class="box">
+        <h3 style="margin-top:0">نکات سریع</h3>
+        <ul style="line-height:1.8;color:rgba(230,238,248,0.85);padding-left:18px">
+          <li>برای شروع، Python 3.10+ نصب کن.</li>
+          <li>کدها را در فایل با پسوند <code>.py</code> ذخیره و با دستور <code>python file.py</code> اجرا کن.</li>
+          <li>از ویرایشگرهایی مثل VSCode یا PyCharm استفاده کن تا راحت‌تر دیباگ کنی.</li>
+        </ul>
+
+        <div style="margin-top:12px">
+          <button class="btn" onclick="selectAllAndCopy()">کپی تمام مثال‌ها</button>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      تصویر بالا هر بار تازه (تصادفی) بارگیری می‌شود. برای اجرای واقعی کدها از مفسر پایتون استفاده کنید.
+    </footer>
+  </div>
+
+  <script>
+    function copyText(id){
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(()=>{
+        alert("کپی شد ✅");
+      }).catch(()=>{ alert("کپی نشد — مرورگرت پشتیبانی نمی‌کند"); });
+    }
+    function selectAllAndCopy(){
+      const parts = ['code1','code2','code3','code4'];
+      let all = parts.map(id => document.getElementById(id).innerText).join("\n\n---\n\n");
+      navigator.clipboard.writeText(all).then(()=>alert("همه مثال‌ها کپی شد ✅")).catch(()=>alert("کپی نشد"));
+    }
+  </script>
 </body>
 </html>
